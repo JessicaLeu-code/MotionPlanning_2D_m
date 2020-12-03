@@ -15,4 +15,5 @@ There are four examples in this package.
 
 
 [1] Liu, Changliu, Chung-Yen Lin, and Masayoshi Tomizuka. "The convex feasible set algorithm for real time optimization in motion planning." SIAM Journal on Control and optimization 56.4 (2018): 2712-2733.
+
 [2] https://jessicaleu24.github.io/ACC2021.html

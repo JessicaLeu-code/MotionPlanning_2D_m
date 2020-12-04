@@ -12,7 +12,7 @@ There are four examples in this package.
 - `main_MPC.m` implements CFS and PSGCFS in a MPC framework. The defult setting shows that PSGCFS can avoid local optima from which CFS cannot escape.
 - `main_RRT_CFS_2.m` implements RRT*-CFS [2] for 2D planning. RRT*-CFS can solve narrow passage problems that are generally difficult for gradient-based solvers. 
 
-
+![GitHub Logo](/RRT-CFS.jpg)
 
 [1] Liu, Changliu, Chung-Yen Lin, and Masayoshi Tomizuka. "The convex feasible set algorithm for real time optimization in motion planning." SIAM Journal on Control and optimization 56.4 (2018): 2712-2733.
 

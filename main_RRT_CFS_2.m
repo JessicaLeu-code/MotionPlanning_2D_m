@@ -63,6 +63,8 @@ obs{2}.m = 0.01;
 obs{2}.epsilon = 0.02;
 obs{2}.v = [0;0];
 
+sys_info.num_obs = size(obs,2);
+
 %% View and Plot
 view_area = [-0.1 0.9 -0.3 0.3 0 0.1];
 [plot_marker] = plot_obs_2D(obs,view_area);
@@ -94,11 +96,6 @@ sys_info.dim = dim;
 sys_info.nstate = nstate;
 sys_info.x0 = x0;
 sys_info.goal_th = goal_th;
-
-% plot initial
-figure(1)
-p_init = plot(x0(1),x0(2),'co');
-p_goal = plot(goal_th(1),goal_th(2),'k*');
 
 
 %% solver RRT
@@ -225,14 +222,17 @@ end
 path_length = size(self.route,2);
 pathimplemented = self.route(1:2,:);
 
-plot(goalxyth(1),goalxyth(2),'*b')
-all = plot(self.all_nodes(2,:),self.all_nodes(3,:),'ok');
+pt(1) = plot(goalxyth(1),goalxyth(2),'*b')
+pt(2) = plot(self.all_nodes(2,:),self.all_nodes(3,:),'ok');
 route = plot(self.route(1,:),self.route(2,:),'*-r');
 
 figure(1)
 pt(3) = plot(self_cfs.x_(1:2:end),self_cfs.x_(2:2:end),'b*');
+p_init = plot(x0(1),x0(2),'co');
+p_goal = plot(goal_th(1),goal_th(2),'k*');
+legend([pt p_goal p_init  plot_marker(1)],'RRT samples','RRT*','RRT*-CFS','Goal','Initial location','Obstacle','Location','northoutside','Orientation','horizontal','NumColumns',4)
+
 axis(view_area)
+axis([-0.1 0.9 -0.3 0.3])
 axis equal
 view(2)
-
-ref = [linspace(x0(1),goal(1),H)';linspace(x0(2),goal(2),H)'];
